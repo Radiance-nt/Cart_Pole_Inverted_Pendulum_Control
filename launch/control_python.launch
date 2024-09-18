@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="controller" default="LQR" />
+
+    <include file="$(find pendulum_control)/launch/spawn_gazebo.launch"/>
+
+    <node name="control" pkg="pendulum_control" type="control_py.py" respawn="false" output="screen">
+        <param name="controller" value="$(arg controller)" />
+    </node>
+
+</launch>
